@@ -1,5 +1,4 @@
 class Game
-
   TOTAL_ERRORS_ALLOWED = 7
 
   def initialize(word)

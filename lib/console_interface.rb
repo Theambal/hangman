@@ -1,9 +1,8 @@
 class ConsoleInterface
-
   FIGURES =
     Dir[__dir__ + '/../data/figures/*.txt'].
-    sort.
-    map { |file_name| File.read(file_name) }
+      sort.
+      map { |file_name| File.read(file_name) }
 
   def initialize(game)
     @game = game
@@ -11,17 +10,17 @@ class ConsoleInterface
 
   def print_out
     print <<~END
-        Слово: #{word_to_show}
-        #{figure}
-        Ошибки (#{@game.errors_made}): #{errors_to_show}
-        У вас осталось ошибок: #{@game.errors_allowed}
-        Введите следующую букву:
-        END
-      if @game.won?
-        puts 'Поздравляю вы выиграли!'
-      elsif @game.lost?
-        puts "Вы проиграли, загаданное слово: #{@game.word}"
-      end
+      Слово: #{word_to_show}
+      #{figure}
+      Ошибки (#{@game.errors_made}): #{errors_to_show}
+      У вас осталось ошибок: #{@game.errors_allowed}
+      Введите следующую букву:
+      END
+    if @game.won?
+      puts 'Поздравляю вы выиграли!'
+    elsif @game.lost?
+      puts "Вы проиграли, загаданное слово: #{@game.word}"
+    end
   end
 
   def figure
